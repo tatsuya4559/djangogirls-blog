@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 flake8 = "*"
 black = "*"
+neovim = "*"
 
 [packages]
 django = "*"
@@ -14,7 +15,9 @@ django = "*"
 python_version = "3.7"
 
 [scripts]
-run = "python manage.py runserver"
+start = "python manage.py runserver"
+lint = "flake8 --max-line-length=120 --ignore=E203,W503,W504 ."
+format = "black ."
 
 [pipenv]
 allow_prereleases = true
