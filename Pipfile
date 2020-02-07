@@ -7,9 +7,12 @@ verify_ssl = true
 flake8 = "*"
 black = "*"
 neovim = "*"
+pudb = "*"
 
 [packages]
 django = "*"
+ipython = "*"
+jupyter = "*"
 
 [requires]
 python_version = "3.7"
