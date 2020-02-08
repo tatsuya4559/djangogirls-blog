@@ -77,7 +77,6 @@ def post_remove(request, pk):
 
 class AddCommentToPostView(TemplateView):
     def get(self, request, pk):
-        post = get_object_or_404(Post, pk=pk)
         form = CommentForm()
         return render(request, "blog/add_comment_to_post.html", {"form": form})
 
