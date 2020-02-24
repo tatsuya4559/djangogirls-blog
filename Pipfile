@@ -18,9 +18,9 @@ jupyter = "*"
 python_version = "3.7"
 
 [scripts]
-start = "python manage.py runserver"
-lint = "flake8 --max-line-length=120 --ignore=E203,W503,W504 ."
-format = "black ."
+start = "python src/manage.py runserver"
+lint = "flake8 --max-line-length=120 --ignore=E203,W503,W504 src/"
+format = "black src/"
 
 [pipenv]
 allow_prereleases = true
