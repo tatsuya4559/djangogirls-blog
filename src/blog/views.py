@@ -2,15 +2,17 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.utils.decorators import method_decorator
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, View
+from django.http import JsonResponse
 
-from .forms import CommentForm, PostForm
-from .models import Comment, Post
+from blog.forms import CommentForm, PostForm
+from blog.models import Comment, Post
 
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by("published_date")
     return render(request, "blog/post_list.html", {"posts": posts})
+    return render(request, "assets/index.html")
 
 
 def post_detail(request, pk):
@@ -103,3 +105,8 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect("post_detail", pk=comment.post.pk)
+
+
+class TestApiView(View):
+    def get(self, request):
+        return JsonResponse({"name": "kato"})
