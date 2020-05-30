@@ -1,8 +1,7 @@
-module.exports = {
-  entry: {
-    postList: './assets/blog/js/post_list.tsx',
-    // あとはこのエントリポイントに追加してくだけ
-  },
+const merge = require('webpack-merge');
+const entry = require('./webpack.entrypoint.js')
+
+module.exports = merge(entry, {
   module: {
     rules: [
       {
@@ -24,4 +23,4 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
     // これのおかげで、importに拡張子を書かなくてすむ
   },
-};
+});

@@ -7,8 +7,10 @@ module.exports = merge(common, {
   devtool: "source-map",
   output: {
     // prodはPJ直下のstaticに配置する
-    path: path.resolve(__dirname, "static/dist/js"),
+    path: path.resolve(__dirname, "../static/dist/js"),
     filename: "[name].js",
+    // [name].bundle.js
+    // [id].chunk.js
   },
   module: {
     rules: [

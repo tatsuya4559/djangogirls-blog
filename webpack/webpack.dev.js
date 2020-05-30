@@ -7,7 +7,7 @@ module.exports = merge(common, {
   devtool: 'inline-source-map',
   output: {
     // developmentなのでdjangoの各アプリの下のstaticに配置する
-    path: path.resolve(__dirname, 'blog/static/dist/js'),
+    path: path.resolve(__dirname, '../blog/static/dist/js'),
     filename: '[name].js',
   },
   module: {
