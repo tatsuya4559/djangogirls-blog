@@ -33,6 +33,8 @@ module.exports = merge(common, {
     ],
   },
   plugins: [].concat(
+    // packageのバンドルサイズは以下のサイトで解析できる
+    // https://bundlephobia.com/scan
     process.env.BUILD_STATS
       ? [
           new BundleAnalyzerPlugin({
