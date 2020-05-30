@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    postList: "./assets/blog/js/post_list.tsx",
+    postList: './assets/blog/js/post_list.tsx',
     // あとはこのエントリポイントに追加してくだけ
   },
   module: {
@@ -8,24 +8,27 @@ module.exports = {
       {
         exclude: /node_modules/,
         test: /\.js$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         options: {
-          presets: ["@babel/preset-react"],
+          presets: ['@babel/preset-react'],
         },
       },
       {
         exclude: /node_modules/,
         test: /\.tsx?$/,
-        loader: "ts-loader",
+        loader: 'ts-loader',
       },
       {
-        test: /\.module\.css$/,
+        test: /\.module\.css$/i,
         use: [
-          { loader: "style-loader" },
+          { loader: 'style-loader' },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
-              modules: true,
+              modules: {
+                localIdentName: '[path][name]__[local]',
+                //use '[hash:base64]' for production
+              },
             },
           },
         ],
@@ -33,7 +36,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: ['.tsx', '.ts', '.js'],
     // これのおかげで、importに拡張子を書かなくてすむ
   },
 };
