@@ -18,21 +18,6 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'ts-loader',
       },
-      {
-        test: /\.module\.css$/i,
-        use: [
-          { loader: 'style-loader' },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[path][name]__[local]',
-                //use '[hash:base64]' for production
-              },
-            },
-          },
-        ],
-      },
     ],
   },
   resolve: {
