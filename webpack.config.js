@@ -1,18 +1,18 @@
 const path = require("path");
 
-const isEnvProduction = env.production;
-const mode = isEnvProduction ? "production" : "development";
-// それよりもファイルを分けたほうがわかりやすいね
+// ファイルを分けたほうがわかりやすいね
 // https://webpack.js.org/guides/production/
 
 module.exports = {
-  mode: mode,
+  mode: "development",
   entry: {
     postList: "./assets/blog/js/post_list.js",
     // あとはこのエントリポイントに追加してくだけ
   },
   output: {
-    path: path.resolve(__dirname, "static/dist/js"),
+    // developmentなのでdjangoの各アプリの下のstaticに配置する
+    // prodはPJ直下のstaticに配置する
+    path: path.resolve(__dirname, "blog/static/dist/js"),
     filename: "[name].js",
   },
   module: {
@@ -22,8 +22,8 @@ module.exports = {
         test: /\.js$/,
         loader: "babel-loader",
         options: {
-          presets: ['react', 'es2015']
-        }
+          presets: ["@babel/preset-react"],
+        },
       },
     ],
   },
