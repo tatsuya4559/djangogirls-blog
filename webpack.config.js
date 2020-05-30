@@ -5,8 +5,9 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
+  devtool: "inline=source-map",
   entry: {
-    postList: "./assets/blog/js/post_list.js",
+    postList: "./assets/blog/js/post_list.tsx",
     // あとはこのエントリポイントに追加してくだけ
   },
   output: {
@@ -24,6 +25,11 @@ module.exports = {
         options: {
           presets: ["@babel/preset-react"],
         },
+      },
+      {
+        exclude: /node_modules/,
+        test: /\.tsx?$/,
+        loader: "ts-loader",
       },
     ],
   },
