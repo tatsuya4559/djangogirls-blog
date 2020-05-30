@@ -1,3 +1,4 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const merge = require('webpack-merge');
 const entrypoints = require('./entrypoints.js');
 
@@ -20,6 +21,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [new CleanWebpackPlugin()],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     // これのおかげで、importに拡張子を書かなくてすむ
