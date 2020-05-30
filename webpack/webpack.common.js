@@ -1,7 +1,8 @@
 const merge = require('webpack-merge');
-const entry = require('./webpack.entrypoint.js')
+const entrypoints = require('./entrypoints.js');
 
-module.exports = merge(entry, {
+module.exports = {
+  entry: entrypoints,
   module: {
     rules: [
       {
@@ -23,4 +24,4 @@ module.exports = merge(entry, {
     extensions: ['.tsx', '.ts', '.js'],
     // これのおかげで、importに拡張子を書かなくてすむ
   },
-});
+};
