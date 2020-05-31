@@ -3,12 +3,12 @@
     "allowJs": true,
     "target": "es5",
     "lib": ["dom", "es5"],
-    "module": "CommonJS",
+    "module": "es2015",
     "jsx": "react",
     "sourceMap": true,
-    "strict":true,
-    "noFallthroughCasesInSwitch":true,
-    "noImplicitReturns":true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   }
