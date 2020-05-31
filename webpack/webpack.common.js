@@ -28,9 +28,9 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
     symlinks: false,
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'all',
+  //   },
+  // },
 };
