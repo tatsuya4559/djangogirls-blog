@@ -16,6 +16,7 @@ module.exports = {
       },
       {
         exclude: /node_modules/,
+        // include: path.resolve(__dirname, '../assets'),
         test: /\.tsx?$/,
         loader: 'ts-loader',
       },
@@ -24,6 +25,11 @@ module.exports = {
   plugins: [new CleanWebpackPlugin()],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    // これのおかげで、importに拡張子を書かなくてすむ
+    symlinks: false,
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
 };

@@ -5,7 +5,6 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'production',
-  devtool: 'source-map',
   output: {
     // prodはPJ直下のstaticに配置する
     path: path.resolve(__dirname, '../static/dist/js'),
@@ -38,10 +37,10 @@ module.exports = merge(common, {
       ? [
           new BundleAnalyzerPlugin({
             analyzerMode: 'static',
-            reportFilename: path.join(__dirname, './stats/report.html'),
+            reportFilename: path.resolve(__dirname, 'stats/report.html'),
             defaultSizes: 'gzip',
             generateStatsFile: true,
-            statsFilename: path.join(__dirname, './stats/stats.json'),
+            statsFilename: path.resolve(__dirname, 'stats/stats.json'),
           }),
         ]
       : []
