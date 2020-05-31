@@ -1,4 +1,5 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const merge = require('webpack-merge');
 const entrypoints = require('./entrypoints.js');
 
@@ -22,7 +23,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [new CleanWebpackPlugin(), new HardSourceWebpackPlugin()],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     symlinks: false,
