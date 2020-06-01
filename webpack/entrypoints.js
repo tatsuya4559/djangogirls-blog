@@ -5,5 +5,5 @@
  * <script src={% static 'js/key.bundle.js' %}></script>
  */
 module.exports = {
-    postList: './assets/blog/js/post_list.tsx',
-}
+  posts: './assets/blog/posts.tsx',
+};
