@@ -8,7 +8,7 @@ module.exports = merge(common, {
   output: {
     // developmentなのでdjangoの各アプリの下のstaticに配置する
     path: path.resolve(__dirname, '../blog/static/dist/js'),
-    filename: '[name].js',
+    filename: '[name].bundle.js',
     pathinfo: false,
   },
   module: {

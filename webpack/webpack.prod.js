@@ -8,9 +8,7 @@ module.exports = merge(common, {
   output: {
     // prodはPJ直下のstaticに配置する
     path: path.resolve(__dirname, '../static/dist/js'),
-    filename: '[name].js',
-    // [name].bundle.js
-    // [id].chunk.js
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [
