@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "target": "es5",
-    "lib": ["dom", "es5"],
-    "module": "es2015",
+    "target": "es6",
+    "lib": ["dom", "es2017"],
+    "module": "es6",
     "jsx": "react",
     "sourceMap": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+    "moduleResolution": "node"
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
