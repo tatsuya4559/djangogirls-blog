@@ -15,7 +15,7 @@ module.exports = {
   },
   plugins: [new CleanWebpackPlugin(), new HardSourceWebpackPlugin()],
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', '.json'],
     symlinks: false,
   },
 };

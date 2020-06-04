@@ -11,5 +11,14 @@
         }
       }
     ]
-  ]
+  ],
+  "plugins": [
+      [
+        "i18next-extract",
+        {
+          "locales": ["ja", "en"],
+          "outputPath": "./locale/{{locale}}.json"
+        }
+      ]
+    ]
 }
