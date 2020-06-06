@@ -6,13 +6,14 @@ import classes from './BootstrapCard.module.css';
 
 type Props = {
   post: PostModel;
+  className: string;
 };
 
-const BootstrapCard: React.FC<Props> = ({ post }) => {
+const BootstrapCard: React.FC<Props> = ({ post, className }) => {
   console.log(classes.date);
 
   return (
-    <Card className={classes.card}>
+    <Card className={cx(classes.card, className)}>
       <Card.Body>
         <Card.Title>
           <a href={`/post/${post.pk}`}>{post.title}</a>

@@ -1,0 +1,9 @@
+.postContainer {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+}
+
+.postItem {
+  margin: 0.5rem;
+}
