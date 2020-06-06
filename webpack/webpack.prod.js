@@ -7,7 +7,7 @@ module.exports = merge(common, {
   mode: 'production',
   output: {
     // prodはPJ直下のstaticに配置する
-    path: path.resolve(__dirname, '../static/dist/js'),
+    path: path.resolve(__dirname, '../src/static/dist/js'),
     filename: '[name].bundle.js',
   },
   module: {

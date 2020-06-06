@@ -7,7 +7,7 @@ module.exports = merge(common, {
   devtool: 'eval-cheap-module-source-map',
   output: {
     // developmentなのでdjangoの各アプリの下のstaticに配置する
-    path: path.resolve(__dirname, '../blog/static/dist/js'),
+    path: path.resolve(__dirname, '../src/blog/static/dist/js'),
     filename: '[name].bundle.js',
     pathinfo: false,
   },
