@@ -9,6 +9,7 @@ black = "*"
 
 [packages]
 django = "*"
+faker = "*"
 
 [requires]
 python_version = "3.7"
