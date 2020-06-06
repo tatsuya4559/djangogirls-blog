@@ -3,7 +3,8 @@
     "build": "webpack --config webpack/webpack.prod.js",
     "build:stats": "BUILD_STATS=1 webpack --config webpack/webpack.prod.js",
     "dev": "webpack --config webpack/webpack.dev.js",
-    "watch": "webpack --config webpack/webpack.dev.js --watch"
+    "watch": "webpack --config webpack/webpack.dev.js --watch",
+    "format": "prettier --write 'assets/**/*.{tsx,ts,js,json}'"
   },
   "dependencies": {
     "axios": "^0.19.2",
