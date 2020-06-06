@@ -7,16 +7,21 @@
     "format": "prettier --write 'assets/**/*.{tsx,ts,js,json}'"
   },
   "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
     "classnames": "^2.2.6",
     "core-js": "3",
     "date-fns": "^2.14.0",
+    "emotion-theming": "^10.0.27",
     "i18next": "^19.4.5",
     "immutable": "^4.0.0-rc.12",
     "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
-    "react-i18next": "^11.5.0",
-    "semantic-ui-react": "^0.88.2"
+    "react-i18next": "^11.5.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
