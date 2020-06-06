@@ -14,7 +14,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.module\.css$/i,
+        test: /\.css$/i,
         use: [
           { loader: 'style-loader' },
           {
