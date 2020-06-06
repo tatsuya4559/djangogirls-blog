@@ -17,6 +17,14 @@ class Post(models.Model):
     def approved_comments(self):
         return self.comments.filter(is_approved=True)
 
+    def as_dict(self):
+        return {
+            "pk": self.pk,
+            "title": self.title,
+            "text": self.text,
+            "published_date": self.published_date.isoformat()
+        }
+
     def __str__(self):
         return self.title
 

@@ -1,0 +1,24 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": 3,
+        "targets": {
+          "chrome": "58",
+          "ie": "11"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+      [
+        "i18next-extract",
+        {
+          "locales": ["ja", "en"],
+          "outputPath": "./locale/{{locale}}.json"
+        }
+      ]
+    ]
+}
