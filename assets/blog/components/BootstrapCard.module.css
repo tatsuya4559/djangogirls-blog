@@ -1,0 +1,16 @@
+.card {
+  width: 20rem;
+}
+
+.card a {
+  color: black;
+}
+
+.card a:hover {
+  color: #1e70bf;
+}
+
+.date {
+  color: #828282;
+  margin-bottom: 1em;
+}

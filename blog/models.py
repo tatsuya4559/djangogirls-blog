@@ -19,7 +19,7 @@ class Post(models.Model):
 
     def as_dict(self):
         return {
-            "id": self.pk,
+            "pk": self.pk,
             "title": self.title,
             "text": self.text,
             "published_date": self.published_date.isoformat()
