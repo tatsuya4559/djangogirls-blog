@@ -6,7 +6,7 @@ import classes from './BootstrapCard.module.css';
 
 type Props = {
   post: PostModel;
-  className: string;
+  className?: string;
 };
 
 const BootstrapCard: React.FC<Props> = ({ post, className }) => {
@@ -21,7 +21,7 @@ const BootstrapCard: React.FC<Props> = ({ post, className }) => {
         <Card.Subtitle className={classes.date}>
           <span className="text-muted">{post.published_date_yyyymmdd}</span>
         </Card.Subtitle>
-        <Card.Text>{post.text}</Card.Text>
+        <Card.Text className={classes.text}>{post.text}</Card.Text>
       </Card.Body>
     </Card>
   );
