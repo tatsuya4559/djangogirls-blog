@@ -33,14 +33,4 @@ const PostList: React.FC = () => {
   );
 };
 
-/* <div>
-  {posts.map((post) => (
-    <BootstrapCard
-      key={post.pk}
-      className={classes.postItem}
-      post={post}
-    />
-  ))}
-</div> */
-
 export default PostList;
