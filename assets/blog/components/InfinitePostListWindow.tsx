@@ -67,8 +67,8 @@ const InfinitePostListWindow: React.FC<Props> = ({
               isScrolling={isScrolling}
               onScroll={onChildScroll}
               scrollTop={scrollTop}
-              rowHeight={272}
-              width={672}
+              rowHeight={272} // カードのheight + margin
+              width={672} // カードのwidth + margin(margin取らないとbox-shadowが見切れる)
               rowCount={rowCount}
             />
           )}
