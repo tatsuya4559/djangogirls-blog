@@ -10,8 +10,6 @@ type Props = {
 };
 
 const BootstrapCard: React.FC<Props> = ({ post, className }) => {
-  console.log(classes.date);
-
   return (
     <Card className={cx(classes.card, className)}>
       <Card.Body>
