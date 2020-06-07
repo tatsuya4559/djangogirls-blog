@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import Post from './components/Post';
 import InfinitePostList from '../components/InfinitePostList';
+import InfinitePostListWindow from '../components/InfinitePostListWindow';
 import { fetchPosts } from '../api/post';
 import { PostModel } from '../models/PostModel';
 import { IndexRange } from 'react-virtualized';
@@ -22,7 +23,7 @@ const PostList: React.FC = () => {
   };
 
   return (
-    <InfinitePostList
+    <InfinitePostListWindow
       hasNextPage={posts.length < remoteRowCount}
       isNextPageLoading={isLoading}
       posts={posts}
