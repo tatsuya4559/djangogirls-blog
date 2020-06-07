@@ -8,6 +8,7 @@ import {
   ListRowRenderer,
   AutoSizer,
 } from 'react-virtualized';
+import remToPx from '../lib/remToPx';
 import BootstrapCard from './BootstrapCard';
 import { PostModel } from '../models/PostModel';
 import classes from './InfinitePostListWindow.module.css';
@@ -67,8 +68,8 @@ const InfinitePostListWindow: React.FC<Props> = ({
               isScrolling={isScrolling}
               onScroll={onChildScroll}
               scrollTop={scrollTop}
-              rowHeight={272} // カードのheight + margin
-              width={672} // カードのwidth + margin(margin取らないとbox-shadowが見切れる)
+              rowHeight={remToPx(15 + 2)} // カードのheight + margin
+              width={remToPx(40 + 2)} // カードのwidth + margin(margin取らないとbox-shadowが見切れる)
               rowCount={rowCount}
             />
           )}
