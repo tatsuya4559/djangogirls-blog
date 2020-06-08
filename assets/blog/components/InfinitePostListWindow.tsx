@@ -18,7 +18,6 @@ type Props = {
   isNextPageLoading: boolean;
   posts: PostModel[];
   loadMoreRows: (params: IndexRange) => Promise<any>;
-  remoteRowCount: number;
 };
 
 const InfinitePostListWindow: React.FC<Props> = ({
@@ -26,7 +25,6 @@ const InfinitePostListWindow: React.FC<Props> = ({
   isNextPageLoading,
   posts,
   loadMoreRows,
-  remoteRowCount,
 }) => {
   const isRowLoaded = ({ index }: Index) =>
     !hasNextPage || index < posts.length;
@@ -40,7 +38,7 @@ const InfinitePostListWindow: React.FC<Props> = ({
       //画面全体を無限スクロールするにはwindowscrollerを使用する
       content = <BootstrapCard post={posts[index]} />;
     } else {
-      content = 'Loading...';
+      content = 'Loading...'; // WindowScrollerを使っているときは不要だね
     }
 
     return (

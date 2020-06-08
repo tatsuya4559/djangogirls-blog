@@ -28,7 +28,6 @@ const PostList: React.FC = () => {
       isNextPageLoading={isLoading}
       posts={posts}
       loadMoreRows={loadMoreRows}
-      remoteRowCount={remoteRowCount}
     />
   );
 };

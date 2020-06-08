@@ -16,7 +16,6 @@ type Props = {
   isNextPageLoading: boolean;
   posts: PostModel[];
   loadMoreRows: (params: IndexRange) => Promise<any>;
-  remoteRowCount: number;
 };
 
 const InfinitePostList: React.FC<Props> = ({
@@ -24,7 +23,6 @@ const InfinitePostList: React.FC<Props> = ({
   isNextPageLoading,
   posts,
   loadMoreRows,
-  remoteRowCount,
 }) => {
   const isRowLoaded = ({ index }: Index) =>
     !hasNextPage || index < posts.length;
