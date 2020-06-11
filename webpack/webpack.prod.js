@@ -1,5 +1,6 @@
 const path = require('path');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
@@ -7,15 +8,15 @@ module.exports = merge(common, {
   mode: 'production',
   output: {
     // prodはPJ直下のstaticに配置する
-    path: path.resolve(__dirname, '../src/static/dist/js'),
-    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, '../src/static/dist'),
+    filename: 'js/[name].bundle.js',
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
         use: [
-          { loader: 'style-loader' },
+          { loader: MiniCssExtractPlugin.loader },
           {
             loader: 'css-loader',
             options: {
