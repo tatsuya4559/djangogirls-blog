@@ -1,5 +1,8 @@
 const path = require('path');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
@@ -7,26 +10,12 @@ module.exports = merge(common, {
   mode: 'production',
   output: {
     // prodはPJ直下のstaticに配置する
-    path: path.resolve(__dirname, '../static/dist/js'),
-    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, '../src/static/dist'),
+    filename: 'js/[name].bundle.js',
   },
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: [
-          { loader: 'style-loader' },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[hash:base64]',
-              },
-            },
-          },
-        ],
-      },
-    ],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserJSPlugin(), new OptimizeCSSAssetsPlugin()],
   },
   plugins: [].concat(
     // packageのバンドルサイズは以下のサイトで解析できる
@@ -41,6 +30,6 @@ module.exports = merge(common, {
             statsFilename: path.resolve(__dirname, 'stats/stats.json'),
           }),
         ]
-      : []
+      : [],
   ),
 });

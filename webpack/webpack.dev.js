@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
@@ -7,26 +8,8 @@ module.exports = merge(common, {
   devtool: 'eval-cheap-module-source-map',
   output: {
     // developmentなのでdjangoの各アプリの下のstaticに配置する
-    path: path.resolve(__dirname, '../blog/static/dist/js'),
-    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, '../src/blog/static/dist'),
+    filename: 'js/[name].bundle.js',
     pathinfo: false,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: [
-          { loader: 'style-loader' },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[path][name]__[local]',
-              },
-            },
-          },
-        ],
-      },
-    ],
   },
 });

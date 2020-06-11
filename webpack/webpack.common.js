@@ -1,5 +1,6 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const entrypoints = require('./entrypoints.js');
 
 module.exports = {
@@ -9,11 +10,49 @@ module.exports = {
       {
         exclude: /node_modules/,
         test: /\.tsx?$/,
-        use: [ 'babel-loader', 'ts-loader']
+        use: ['babel-loader', 'ts-loader'],
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName:
+                  process.env.NODE_ENV === 'production'
+                    ? '[hash:base64]'
+                    : '[path][name]__[local]',
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.pcss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: [require('tailwindcss'), require('autoprefixer')],
+            },
+          },
+        ],
       },
     ],
   },
-  plugins: [new CleanWebpackPlugin(), new HardSourceWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HardSourceWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].bundle.css',
+      chunkFilename: 'css/[id].css',
+    }),
+  ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
     symlinks: false,
