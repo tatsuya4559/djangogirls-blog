@@ -17,24 +17,6 @@ module.exports = merge(common, {
     minimize: true,
     minimizer: [new TerserJSPlugin(), new OptimizeCSSAssetsPlugin()],
   },
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: [
-          { loader: MiniCssExtractPlugin.loader },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[hash:base64]',
-              },
-            },
-          },
-        ],
-      },
-    ],
-  },
   plugins: [].concat(
     // packageのバンドルサイズは以下のサイトで解析できる
     // https://bundlephobia.com/scan

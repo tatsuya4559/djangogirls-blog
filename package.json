@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "build": "webpack --config webpack/webpack.prod.js",
-    "build:stats": "BUILD_STATS=1 webpack --config webpack/webpack.prod.js",
-    "dev": "webpack --config webpack/webpack.dev.js",
-    "watch": "webpack --config webpack/webpack.dev.js --watch",
+    "build": "NODE_ENV=production webpack --config webpack/webpack.prod.js",
+    "build:stats": "NODE_ENV=production BUILD_STATS=1 webpack --config webpack/webpack.prod.js",
+    "dev": "NODE_ENV=development webpack --config webpack/webpack.dev.js",
+    "watch": "NODE_ENV=development webpack --config webpack/webpack.dev.js --watch",
     "format": "prettier --write 'assets/**/*.{tsx,ts,js,json}'"
   },
   "dependencies": {
@@ -28,6 +28,7 @@
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
     "@types/react-virtualized": "^9.21.10",
+    "autoprefixer": "^9.8.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-i18next-extract": "^0.7.2",
     "clean-webpack-plugin": "^3.0.0",
@@ -35,7 +36,9 @@
     "hard-source-webpack-plugin": "^0.13.1",
     "mini-css-extract-plugin": "^0.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
     "prettier": "^2.0.5",
+    "tailwindcss": "^1.4.6",
     "terser-webpack-plugin": "^3.0.3",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.3",

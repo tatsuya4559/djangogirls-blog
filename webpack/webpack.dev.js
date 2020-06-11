@@ -12,22 +12,4 @@ module.exports = merge(common, {
     filename: 'js/[name].bundle.js',
     pathinfo: false,
   },
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: [
-          { loader: MiniCssExtractPlugin.loader },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[path][name]__[local]',
-              },
-            },
-          },
-        ],
-      },
-    ],
-  },
 });

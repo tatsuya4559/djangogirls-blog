@@ -12,10 +12,37 @@ module.exports = {
         test: /\.tsx?$/,
         use: ['babel-loader', 'ts-loader'],
       },
-      // {
-      //   test: /^(?!.*module).*\.css$/,
-      //   use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      // },
+      {
+        test: /\.css$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName:
+                  process.env.NODE_ENV === 'production'
+                    ? '[hash:base64]'
+                    : '[path][name]__[local]',
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.pcss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: [require('tailwindcss'), require('autoprefixer')],
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
