@@ -1,6 +1,8 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const tailwindcss = require('tailwindcss');
+const autoprefixer = require('autoprefixer');
 const entrypoints = require('./entrypoints.js');
 
 module.exports = {
@@ -27,6 +29,13 @@ module.exports = {
               },
             },
           },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: [autoprefixer],
+            },
+          },
         ],
       },
       {
@@ -38,7 +47,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
-              plugins: [require('tailwindcss'), require('autoprefixer')],
+              plugins: [tailwindcss, autoprefixer],
             },
           },
         ],
