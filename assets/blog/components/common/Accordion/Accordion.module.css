@@ -1,0 +1,19 @@
+.check {
+  display: none;
+}
+
+.label {
+  display: block;
+}
+
+.item {
+  max-height: 0;
+  opacity: 0;
+  transition: 0.2s;
+  overflow: hidden;
+}
+
+.check:checked + .item {
+  max-height: 40px;
+  opacity: 1;
+}
