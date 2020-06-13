@@ -1,8 +1,12 @@
 import React, { ReactNode } from 'react';
-import InfiniteLoader from 'react-virtualized/dist/commonjs/InfiniteLoader';
-import WindowScroller from 'react-virtualized/dist/commonjs/WindowScroller';
-import List from 'react-virtualized/dist/commonjs/List';
-import { Index, IndexRange, ListRowRenderer } from 'react-virtualized/index';
+import {
+  InfiniteLoader,
+  WindowScroller,
+  List,
+  Index,
+  IndexRange,
+  ListRowRenderer,
+} from 'react-virtualized';
 import remToPx from '../lib/remToPx';
 import BootstrapCard from './BootstrapCard';
 import { PostModel } from '../models/PostModel';
