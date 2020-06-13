@@ -37,17 +37,17 @@ const AccordionHeader: React.FC<HeaderProps> = ({
   );
 };
 
-type ItemProps = {
+type ContentProps = {
   className?: string;
 };
 
-const AccordionItem: React.FC<ItemProps> = ({ className, children }) => (
-  <div className={cx(classes.item, className)}>{children}</div>
+const AccordionContent: React.FC<ContentProps> = ({ className, children }) => (
+  <div className={cx(classes.content, className)}>{children}</div>
 );
 
 interface IAccordion extends React.FC {
   Header: typeof AccordionHeader;
-  Item: typeof AccordionItem;
+  Content: typeof AccordionContent;
 }
 
 const Accordion: IAccordion = ({ children }) => {
@@ -60,6 +60,6 @@ const Accordion: IAccordion = ({ children }) => {
 };
 
 Accordion.Header = AccordionHeader;
-Accordion.Item = AccordionItem;
+Accordion.Content = AccordionContent;
 
 export default Accordion;
