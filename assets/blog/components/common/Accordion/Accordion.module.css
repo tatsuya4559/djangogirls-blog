@@ -3,7 +3,18 @@
 }
 
 .label {
-  display: block;
+  display: flex;
+}
+
+.iconWrapper {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.icon {
+  transition: all 0.2s;
 }
 
 .item {
@@ -13,7 +24,11 @@
   overflow: hidden;
 }
 
-.check:checked + .item {
-  max-height: 40px;
+.check:checked + .label + .item {
+  max-height: 40px; /*TODO: ここを可変にしたい*/
   opacity: 1;
+}
+
+.check:checked + .label .icon {
+  transform: rotate(-180deg);
 }

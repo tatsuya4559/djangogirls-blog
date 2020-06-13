@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
+import { FaChevronDown } from 'react-icons/fa';
 import uniqueId from 'lodash/uniqueId';
 import cx from 'classnames';
 import classes from './Accordion.module.css';
@@ -16,12 +17,9 @@ const AccordionHeader: React.FC<HeaderProps> = ({
   children,
 }) => {
   const name = useContext(AccordionContext);
-  const [id] = useState(uniqueId('accordion'));
+  const id = useMemo(() => uniqueId('accordion'), []);
   return (
     <>
-      <label className={cx(classes.label, className)} htmlFor={id}>
-        {children}
-      </label>
       <input
         className={classes.check}
         type="radio"
@@ -29,6 +27,12 @@ const AccordionHeader: React.FC<HeaderProps> = ({
         id={id}
         defaultChecked={defaultOpen}
       />
+      <label className={cx(classes.label, className)} htmlFor={id}>
+        {children}
+        <div className={classes.iconWrapper}>
+          <FaChevronDown className={classes.icon} />
+        </div>
+      </label>
     </>
   );
 };
@@ -47,7 +51,7 @@ interface IAccordion extends React.FC {
 }
 
 const Accordion: IAccordion = ({ children }) => {
-  const [name] = useState(uniqueId('accordionNamespace'));
+  const name = useMemo(() => uniqueId('accordionNamespace'), []);
   return (
     <AccordionContext.Provider value={name}>
       {children}
