@@ -20,12 +20,12 @@
 .item {
   max-height: 0;
   opacity: 0;
-  transition: 0.2s;
+  transition: all 0.3s;
   overflow: hidden;
 }
 
 .check:checked + .label + .item {
-  max-height: 40px; /*TODO: ここを可変にしたい*/
+  max-height: 100vh;
   opacity: 1;
 }
 
