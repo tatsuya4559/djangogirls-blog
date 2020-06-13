@@ -6,6 +6,7 @@
 .tooltip {
   visibility: hidden;
   background-color: black;
+  border-color: black;
   color: white;
   text-align: center;
   padding: 0.25rem 0.5rem;
@@ -31,7 +32,10 @@
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: black transparent transparent transparent;
+  border-top-color: inherit;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
 }
 
 .bottom {
@@ -46,7 +50,10 @@
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent transparent black transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: inherit;
+  border-left-color: transparent;
 }
 
 .right {
@@ -62,7 +69,10 @@
   margin-top: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent black transparent transparent;
+  border-top-color: transparent;
+  border-right-color: inherit;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
 }
 
 .left {
@@ -78,5 +88,8 @@
   margin-top: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent transparent transparent black;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: inherit;
 }
