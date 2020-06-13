@@ -1,5 +1,5 @@
 import React, { useState, useContext, useMemo } from 'react';
-import { FaChevronDown } from 'react-icons/fa';
+import { ChevronDown } from 'react-feather';
 import uniqueId from 'lodash/uniqueId';
 import cx from 'classnames';
 import classes from './Accordion.module.css';
@@ -30,7 +30,7 @@ const AccordionHeader: React.FC<HeaderProps> = ({
       <label className={cx(classes.label, className)} htmlFor={id}>
         {children}
         <div className={classes.iconWrapper}>
-          <FaChevronDown className={classes.icon} />
+          <ChevronDown className={classes.icon} />
         </div>
       </label>
     </>
