@@ -20,13 +20,15 @@
 .content {
   max-height: 0;
   opacity: 0;
-  transition: all 0.3s;
+  transition: all 0.2s ease;
   overflow: hidden;
+  transform: scaleY(0) translateY(-100%);
 }
 
 .check:checked + .label + .content {
   max-height: 100vh;
   opacity: 1;
+  transform: scaleY(1) translateY(0);
 }
 
 .check:checked + .label .icon {
