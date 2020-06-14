@@ -15,21 +15,21 @@ test('Snapshot', () => {
 });
 
 test('textに指定した文字列が表示されていること', () => {
-  const { getByText } = render(
+  const { container } = render(
     <Tooltip text="this is test" placement="top">
       <button>hover me</button>
     </Tooltip>,
   );
-  expect(getByText('this is test')).toBeInTheDocument();
+  expect(container).toHaveTextContent('this is test');
 });
 
 test('childrenコンポーネントが表示されていること', () => {
-  const { getByText } = render(
+  const { container } = render(
     <Tooltip text="this is test" placement="top">
       <button>hover me</button>
     </Tooltip>,
   );
-  expect(getByText('hover me')).toBeInTheDocument();
+  expect(container).toHaveTextContent('hover me');
 });
 
 describe('placementに対応したクラスが適用されていること', () => {

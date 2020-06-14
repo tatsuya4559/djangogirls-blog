@@ -20,12 +20,12 @@ test('snapshot', () => {
 describe('Accordion.Content', () => {
   test('childrenが描画されること', () => {
     const childText = 'childです';
-    const { getByText } = render(
+    const { container } = render(
       <Accordion.Content>
         <p>{childText}</p>
       </Accordion.Content>,
     );
-    expect(getByText(childText)).toBeInTheDocument();
+    expect(container).toHaveTextContent(childText);
   });
 
   test('classNameが適用されること', () => {
@@ -39,12 +39,12 @@ describe('Accordion.Content', () => {
 describe('Accordion.Header', () => {
   test('childrenが描画されること', () => {
     const childText = 'hoge';
-    const { getByText } = render(
+    const { container } = render(
       <Accordion.Header>
         <p>{childText}</p>
       </Accordion.Header>,
     );
-    expect(getByText(childText)).toBeInTheDocument();
+    expect(container).toHaveTextContent(childText);
   });
 
   test('classNameが適用されること', () => {
