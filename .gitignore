@@ -1,10 +1,24 @@
+# python
 *.pyc
 *~
 __pycache__
+
+# database
 db.sqlite3
-/static
+
+# mac
 .DS_Store
-.vscode/
-node_modules/
-webpack/stats
+
+# build
+/static
 **/dist/**/*
+webpack/stats/
+
+# library
+node_modules/
+
+# test
+coverage/
+
+# editor
+.vscode/
