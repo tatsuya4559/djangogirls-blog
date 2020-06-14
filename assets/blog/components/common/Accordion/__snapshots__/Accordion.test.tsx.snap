@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<DocumentFragment>
+  <input
+    class="check"
+    id="accordion2"
+    name="accordionNamespace1"
+    type="radio"
+  />
+  <label
+    class="label"
+    for="accordion2"
+  >
+    hoge
+    <div
+      class="iconWrapper"
+    >
+      <svg
+        class="icon"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="6 9 12 15 18 9"
+        />
+      </svg>
+    </div>
+  </label>
+  <div
+    class="content"
+  >
+    hoge content
+  </div>
+  <input
+    class="check"
+    id="accordion3"
+    name="accordionNamespace1"
+    type="radio"
+  />
+  <label
+    class="label"
+    for="accordion3"
+  >
+    fuga
+    <div
+      class="iconWrapper"
+    >
+      <svg
+        class="icon"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="6 9 12 15 18 9"
+        />
+      </svg>
+    </div>
+  </label>
+  <div
+    class="content"
+  >
+    fuga content
+  </div>
+</DocumentFragment>
+`;
