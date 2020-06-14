@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-// import Post from './components/Post';
 import InfinitePostList from '../components/InfinitePostList';
 import InfinitePostListWindow from '../components/InfinitePostListWindow';
 import { fetchPosts } from '../api/post';
-import { PostModel } from '../models/PostModel';
+import { PostModel } from '../models/PostModel/PostModel';
 import { IndexRange } from 'react-virtualized';
 import 'react-virtualized/styles.css';
+import Tooltip from '../components/common/Tooltip/Tooltip';
+import Accordion from '../components/common/Accordion/Accordion';
 import classes from './PostList.module.css';
 
 const PostList: React.FC = () => {
@@ -23,12 +24,60 @@ const PostList: React.FC = () => {
   };
 
   return (
-    <InfinitePostListWindow
-      hasNextPage={posts.length < remoteRowCount}
-      isNextPageLoading={isLoading}
-      posts={posts}
-      loadMoreRows={loadMoreRows}
-    />
+    <>
+      <Tooltip
+        text="tootip"
+        placement="bottom"
+        className="text-red-300 bg-green-600 border-green-600"
+      >
+        <button className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          tailwind
+        </button>
+      </Tooltip>
+
+      <hr />
+
+      <div className="w-1/2">
+        <Accordion>
+          <Accordion.Header defaultOpen className="bg-gray-600 text-white p-2">
+            クリックで開く1
+          </Accordion.Header>
+          <Accordion.Content className="border border-black border-solid px-2">
+            <p className="p-2">hello.world!</p>
+            <p className="p-2">hello.world!</p>
+            <p className="p-2">hello.world!</p>
+            <p className="p-2">hello.world!</p>
+            <p className="p-2">hello.world!</p>
+            <p className="p-2">hello.world!</p>
+            <p className="p-2">hello.world!</p>
+            <p className="p-2">hello.world!</p>
+          </Accordion.Content>
+          <Accordion.Header className="bg-gray-600 text-white p-2">
+            クリックで開く2
+          </Accordion.Header>
+          <Accordion.Content className="border border-black border-solid px-2">
+            <p className="p-2">hello.world2!</p>
+            <p className="p-2">hello.world2!</p>
+            <p className="p-2">hello.world2!</p>
+            <p className="p-2">hello.world2!</p>
+          </Accordion.Content>
+          <Accordion.Header className="bg-gray-600 text-white p-2">
+            クリックで開く3
+          </Accordion.Header>
+          <Accordion.Content className="border border-black border-solid px-2">
+            <p className="p-2">hello.world3!</p>
+            <p className="p-2">hello.world3!</p>
+          </Accordion.Content>
+        </Accordion>
+      </div>
+
+      <InfinitePostListWindow
+        hasNextPage={posts.length < remoteRowCount}
+        isNextPageLoading={isLoading}
+        posts={posts}
+        loadMoreRows={loadMoreRows}
+      />
+    </>
   );
 };
 

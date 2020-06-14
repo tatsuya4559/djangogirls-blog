@@ -5,11 +5,9 @@ import {
   Index,
   IndexRange,
   ListRowRenderer,
-  AutoSizer,
 } from 'react-virtualized';
 import BootstrapCard from './BootstrapCard';
-import { PostModel } from '../models/PostModel';
-import classes from './InfinitePostList.module.css';
+import { PostModel } from '../models/PostModel/PostModel';
 
 type Props = {
   hasNextPage: boolean;

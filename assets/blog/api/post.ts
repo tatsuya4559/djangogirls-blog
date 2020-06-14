@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { PostModel } from '../models/PostModel';
+import { PostModel } from '../models/PostModel/PostModel';
 
 interface FetchPostsResponse {
   posts: {

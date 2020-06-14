@@ -7,9 +7,9 @@ import {
   IndexRange,
   ListRowRenderer,
 } from 'react-virtualized';
-import remToPx from '../lib/remToPx';
+import remToPx from '../lib/remToPx/remToPx';
 import BootstrapCard from './BootstrapCard';
-import { PostModel } from '../models/PostModel';
+import { PostModel } from '../models/PostModel/PostModel';
 import classes from './InfinitePostListWindow.module.css';
 
 type Props = {

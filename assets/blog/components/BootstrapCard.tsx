@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import { PostModel } from '../models/PostModel';
+import { PostModel } from '../models/PostModel/PostModel';
 import classes from './BootstrapCard.module.css';
 
 type Props = {
