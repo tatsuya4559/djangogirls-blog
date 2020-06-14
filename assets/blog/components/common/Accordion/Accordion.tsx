@@ -2,7 +2,7 @@ import React, { useState, useContext, useMemo } from 'react';
 import { ChevronDown } from 'react-feather';
 import uniqueId from 'lodash/uniqueId';
 import cx from 'classnames';
-import classes from './Accordion.module.css';
+import styles from './Accordion.module.css';
 
 const AccordionContext = React.createContext('accordionNamespace');
 
@@ -21,16 +21,16 @@ const AccordionHeader: React.FC<HeaderProps> = ({
   return (
     <>
       <input
-        className={classes.check}
+        className={styles.check}
         type="radio"
         name={name}
         id={id}
         defaultChecked={defaultOpen}
       />
-      <label className={cx(classes.label, className)} htmlFor={id}>
+      <label className={cx(styles.label, className)} htmlFor={id}>
         {children}
-        <div className={classes.iconWrapper}>
-          <ChevronDown className={classes.icon} />
+        <div className={styles.iconWrapper}>
+          <ChevronDown className={styles.icon} />
         </div>
       </label>
     </>
@@ -42,7 +42,7 @@ type ContentProps = {
 };
 
 const AccordionContent: React.FC<ContentProps> = ({ className, children }) => (
-  <div className={cx(classes.content, className)}>{children}</div>
+  <div className={cx(styles.content, className)}>{children}</div>
 );
 
 interface IAccordion extends React.FC {

@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import classes from './Tooltip.module.css';
+import styles from './Tooltip.module.css';
 
 /**
  * 表示の微調整にclassNameを利用してください
@@ -14,9 +14,9 @@ type Props = {
 
 const Tooltip: React.FC<Props> = ({ text, placement, className, children }) => {
   return (
-    <div className={classes.wrapper}>
+    <div className={styles.wrapper}>
       {children}
-      <span className={cx(className, classes.tooltip, classes[placement])}>
+      <span className={cx(className, styles.tooltip, styles[placement])}>
         {text}
       </span>
     </div>

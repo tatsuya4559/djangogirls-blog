@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import { PostModel } from '../models/PostModel/PostModel';
-import classes from './BootstrapCard.module.css';
+import styles from './BootstrapCard.module.css';
 
 type Props = {
   post: PostModel;
@@ -10,15 +10,15 @@ type Props = {
 
 const BootstrapCard: React.FC<Props> = ({ post, className }) => {
   return (
-    <div className={cx(classes.card, className)}>
+    <div className={cx(styles.card, className)}>
       <div>
         <div>
           <a href={`/post/${post.pk}`}>{post.title}</a>
         </div>
-        <div className={classes.date}>
+        <div className={styles.date}>
           <span className="text-muted">{post.published_date_yyyymmdd}</span>
         </div>
-        <div className={classes.text}>{post.text}</div>
+        <div className={styles.text}>{post.text}</div>
       </div>
     </div>
   );

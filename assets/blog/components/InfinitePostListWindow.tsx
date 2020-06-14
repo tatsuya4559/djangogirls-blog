@@ -10,7 +10,7 @@ import {
 import remToPx from '../lib/remToPx/remToPx';
 import BootstrapCard from './BootstrapCard';
 import { PostModel } from '../models/PostModel/PostModel';
-import classes from './InfinitePostListWindow.module.css';
+import styles from './InfinitePostListWindow.module.css';
 
 type Props = {
   hasNextPage: boolean;
@@ -41,7 +41,7 @@ const InfinitePostListWindow: React.FC<Props> = ({
     }
 
     return (
-      <div key={key} style={style} className={classes.row}>
+      <div key={key} style={style} className={styles.row}>
         {content}
       </div>
     );

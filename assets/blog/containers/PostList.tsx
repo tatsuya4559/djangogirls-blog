@@ -7,7 +7,7 @@ import { IndexRange } from 'react-virtualized';
 import 'react-virtualized/styles.css';
 import Tooltip from '../components/common/Tooltip/Tooltip';
 import Accordion from '../components/common/Accordion/Accordion';
-import classes from './PostList.module.css';
+import styles from './PostList.module.css';
 
 const PostList: React.FC = () => {
   const [remoteRowCount, setRemoteRowCount] = useState(1);
@@ -27,12 +27,10 @@ const PostList: React.FC = () => {
     <>
       <Tooltip
         text="tootip"
-        placement="bottom"
-        className="text-red-300 bg-green-600 border-green-600"
+        placement="top"
+        className="bg-gray-600 border-gray-600 text-blue-100"
       >
-        <button className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          tailwind
-        </button>
+        <button className={styles.btn}>tailwind</button>
       </Tooltip>
 
       <hr />
