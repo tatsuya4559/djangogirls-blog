@@ -21,7 +21,7 @@ test('textに指定した文字列が表示されていること', () => {
     </Tooltip>,
   );
 
-  expect(screen.queryByText('this is test')).toBeTruthy();
+  expect(screen.getByText('this is test')).toBeInTheDocument();
 });
 
 test('childrenコンポーネントが表示されていること', () => {
@@ -31,5 +31,5 @@ test('childrenコンポーネントが表示されていること', () => {
     </Tooltip>,
   );
 
-  expect(screen.queryByText('hover me')).toBeTruthy();
+  expect(screen.getByText('hover me')).toBeInTheDocument();
 });
