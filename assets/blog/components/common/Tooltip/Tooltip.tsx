@@ -1,11 +1,7 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import cx from 'classnames';
 import styles from './Tooltip.module.css';
 
-/**
- * 表示の微調整にclassNameを利用してください
- * placementが'top'または'bottom'の場合は左右の表示位置を調整してください
- */
 type Props = {
   text: string;
   placement: 'top' | 'bottom' | 'right' | 'left';
@@ -13,10 +9,36 @@ type Props = {
 };
 
 const Tooltip: React.FC<Props> = ({ text, placement, className, children }) => {
+  const [height, setHeight] = useState(0);
+  const [width, setWidth] = useState(0);
+
+  const measuredRef = useCallback((el: HTMLElement) => {
+    setHeight(el.getBoundingClientRect().height);
+    setWidth(el.getBoundingClientRect().width);
+  }, []);
+
+  // childrenに対して中央に表示されるように位置を計算する
+  let positionStyle: React.CSSProperties;
+  if (placement === 'top' || placement === 'bottom') {
+    positionStyle = {
+      left: '50%',
+      marginLeft: `-${width / 2}px`,
+    };
+  } else {
+    positionStyle = {
+      top: '50%',
+      marginTop: `-${height / 2}px`,
+    };
+  }
+
   return (
     <div className={styles.wrapper}>
       {children}
-      <span className={cx(className, styles.tooltip, styles[placement])}>
+      <span
+        ref={measuredRef}
+        className={cx(className, styles.tooltip, styles[placement])}
+        style={positionStyle}
+      >
         {text}
       </span>
     </div>
