@@ -5,10 +5,17 @@ import styles from './Tooltip.module.css';
 type Props = {
   text: string;
   placement: 'top' | 'bottom' | 'right' | 'left';
+  delay?: boolean;
   className?: string;
 };
 
-const Tooltip: React.FC<Props> = ({ text, placement, className, children }) => {
+const Tooltip: React.FC<Props> = ({
+  text,
+  placement,
+  delay,
+  className,
+  children,
+}) => {
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
 
@@ -36,7 +43,9 @@ const Tooltip: React.FC<Props> = ({ text, placement, className, children }) => {
       {children}
       <span
         ref={measuredRef}
-        className={cx(className, styles.tooltip, styles[placement])}
+        className={cx(className, styles.tooltip, styles[placement], {
+          [styles.delay]: delay,
+        })}
         style={positionStyle}
       >
         {text}

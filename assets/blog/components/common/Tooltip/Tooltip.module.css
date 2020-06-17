@@ -20,6 +20,14 @@
   visibility: visible;
 }
 
+.delay {
+  transition-delay: 0ms;
+}
+
+.wrapper:hover .delay {
+  transition-delay: 500ms;
+}
+
 .top {
   bottom: calc(100% + 5px); /* 5px for the arrow */
 }
