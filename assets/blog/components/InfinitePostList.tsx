@@ -6,7 +6,7 @@ import {
   IndexRange,
   ListRowRenderer,
 } from 'react-virtualized';
-import BootstrapCard from './BootstrapCard';
+import Post from './Post/Post';
 import { PostModel } from '../models/PostModel/PostModel';
 
 type Props = {
@@ -32,7 +32,7 @@ const InfinitePostList: React.FC<Props> = ({
     if (isRowLoaded({ index })) {
       // 単純なListだとスクロールするブロックができる
       //画面全体を無限スクロールするにはwindowscrollerを使用する
-      content = <BootstrapCard post={posts[index]} />;
+      content = <Post post={posts[index]} />;
     } else {
       content = 'Loading...';
     }

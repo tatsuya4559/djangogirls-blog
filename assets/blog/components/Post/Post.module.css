@@ -1,0 +1,5 @@
+.card {
+  width: 40rem;
+  height: 15rem;
+  @apply shadow p-4 border-t-4 border-solid border-orange-500 rounded;
+}

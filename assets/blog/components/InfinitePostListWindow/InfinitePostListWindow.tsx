@@ -7,9 +7,9 @@ import {
   IndexRange,
   ListRowRenderer,
 } from 'react-virtualized';
-import remToPx from '../lib/remToPx/remToPx';
-import BootstrapCard from './BootstrapCard';
-import { PostModel } from '../models/PostModel/PostModel';
+import Post from '../Post/Post';
+import { PostModel } from '../../models/PostModel/PostModel';
+import remToPx from '../../lib/remToPx/remToPx';
 import styles from './InfinitePostListWindow.module.css';
 
 type Props = {
@@ -35,7 +35,7 @@ const InfinitePostListWindow: React.FC<Props> = ({
     if (isRowLoaded({ index })) {
       // 単純なListだとスクロールするブロックができる
       //画面全体を無限スクロールするにはwindowscrollerを使用する
-      content = <BootstrapCard post={posts[index]} />;
+      content = <Post post={posts[index]} />;
     } else {
       content = 'Loading...'; // WindowScrollerを使っているときは不要だね
     }
@@ -68,6 +68,7 @@ const InfinitePostListWindow: React.FC<Props> = ({
               rowHeight={remToPx(15 + 2)} // カードのheight + margin
               width={remToPx(40 + 2)} // カードのwidth + margin(margin取らないとbox-shadowが見切れる)
               rowCount={rowCount}
+              className="outline-none"
             />
           )}
         </WindowScroller>
