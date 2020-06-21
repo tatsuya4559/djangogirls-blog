@@ -6,7 +6,7 @@ import { useState, useCallback, FormEvent } from 'react';
  * @param initialValue 初期値
  * @returns value, handleChange
  */
-export default function useStringInput(initialValue: boolean = false) {
+export default function useBooleanInput(initialValue: boolean = false) {
   const [value, setValue] = useState(initialValue);
 
   const handleChange = useCallback((e: FormEvent<HTMLInputElement>) => {
