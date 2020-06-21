@@ -9,7 +9,7 @@ import {
 } from 'react-virtualized';
 import Post from '../Post/Post';
 import { PostModel } from '../../models/PostModel/PostModel';
-import remToPx from '../../lib/remToPx/remToPx';
+import remToPx from '../../lib/remToPx';
 import styles from './InfinitePostListWindow.module.css';
 
 type Props = {
