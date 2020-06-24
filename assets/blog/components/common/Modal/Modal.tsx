@@ -1,12 +1,12 @@
 import React, { useEffect, useCallback, cloneElement } from 'react';
 import { createPortal } from 'react-dom';
-import Backdrop from '../Backdrop/Backdrop';
 
 const ESC_KEY_CODE = 27;
 
 type ContentProps = {
   onClose: () => void;
   closeOnEsc: boolean;
+  children: React.ReactNode;
 };
 
 const ModalContent: React.FC<ContentProps> = ({
@@ -14,28 +14,32 @@ const ModalContent: React.FC<ContentProps> = ({
   closeOnEsc,
   children,
 }) => {
-  const handleEscPressed = (e: KeyboardEvent) => {
-    if (e.keyCode === ESC_KEY_CODE) {
+  const handleKeyDown = (e: KeyboardEvent) => {
+    // keyCodeは非推奨だがIEのために使用する
+    if (closeOnEsc && (e.code === 'Escape' || e.keyCode === ESC_KEY_CODE)) {
+      e.stopPropagation();
       onClose();
     }
   };
 
   useEffect(() => {
-    if (closeOnEsc) {
-      document.addEventListener('keydown', handleEscPressed);
-    }
+    document.addEventListener('keydown', handleKeyDown);
     return () => {
-      document.removeEventListener('keydown', handleEscPressed);
+      document.removeEventListener('keydown', handleKeyDown);
     };
   });
 
-  return <>{children}</>;
+  return (
+    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
+      {children}
+    </div>
+  );
 };
 
 type Props = {
   isOpen: boolean;
   onClose: () => void;
-  children: React.ReactElement;
+  // children: React.ReactElement;
   initialFocusRef?: React.MutableRefObject<HTMLElement | null>; // Modalを開いたときにフォーカスされる要素のref
   finalFocusRef?: React.MutableRefObject<HTMLElement | null>; // Modalを閉じたあとにフォーカスされる要素のref
   closeOnBackdropClick?: boolean;
@@ -55,13 +59,6 @@ const Modal: React.FC<Props> = ({
     return null;
   }
 
-  const handleClose = useCallback(() => {
-    onClose();
-    if (finalFocusRef && finalFocusRef.current) {
-      finalFocusRef.current.focus();
-    }
-  }, [onClose, finalFocusRef]);
-
   // initialFocusRefにフォーカスを移す
   useEffect(() => {
     if (initialFocusRef && initialFocusRef.current) {
@@ -69,18 +66,23 @@ const Modal: React.FC<Props> = ({
     }
   }, []);
 
-  // TODO: 配置を計算 left 50%, ml -1/2*width top 4rem
-  const floatingChildren = cloneElement(children, {
-    style: { ...children.props.style, zIndex: 50 },
-  });
+  const handleClose = useCallback(() => {
+    onClose();
+    if (finalFocusRef && finalFocusRef.current) {
+      finalFocusRef.current.focus();
+    }
+  }, [onClose, finalFocusRef]);
 
   return createPortal(
-    <>
+    <div className="fixed h-screen w-full top-0">
       <ModalContent onClose={handleClose} closeOnEsc={closeOnEsc}>
-        {floatingChildren}
+        {children}
       </ModalContent>
-      <Backdrop onClick={closeOnBackdropClick ? handleClose : () => {}} />
-    </>,
+      <div
+        className="absolute h-screen w-full z-40 bg-black bg-opacity-50"
+        onClick={closeOnBackdropClick ? handleClose : undefined}
+      />
+    </div>,
     document.body,
   );
 };
