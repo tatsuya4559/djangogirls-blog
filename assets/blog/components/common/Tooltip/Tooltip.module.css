@@ -30,6 +30,8 @@
 
 .top {
   bottom: calc(100% + 5px); /* 5px for the arrow */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .top::after {
@@ -48,6 +50,8 @@
 
 .bottom {
   top: calc(100% + 5px); /* 5px for the arrow */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .bottom::after {
@@ -66,6 +70,8 @@
 
 .right {
   left: calc(100% + 5px); /* 5px for the arrow */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .right::after {
@@ -84,6 +90,8 @@
 
 .left {
   right: calc(100% + 5px); /* 5px for the arrow */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .left::after {
