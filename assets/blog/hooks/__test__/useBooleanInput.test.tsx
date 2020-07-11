@@ -1,8 +1,10 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, cleanup } from '@testing-library/react';
 import { renderHook, act } from '@testing-library/react-hooks';
 import useBooleanInput from '../useBooleanInput';
+
+afterEach(cleanup);
 
 test('初期値が反映されていること', () => {
   {
