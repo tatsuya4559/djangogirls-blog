@@ -1,7 +1,8 @@
-import React, { useEffect, useCallback, cloneElement } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 
 const ESC_KEY_CODE = 27;
+
 
 type ContentProps = {
   onClose: () => void;
