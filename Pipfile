@@ -6,17 +6,20 @@ verify_ssl = true
 [dev-packages]
 flake8 = "*"
 black = "*"
+pylint = "*"
 
 [packages]
 django = "*"
 faker = "*"
 bleach = ">=3.1.4"
+ipython = "*"
 
 [requires]
 python_version = "3.7"
 
 [scripts]
 server = "python src/manage.py runserver"
+shell = "python src/manage.py shell"
 lint = "flake8 --max-line-length=120 --ignore=E203,W503,W504 src/"
 format = "black src/"
 
