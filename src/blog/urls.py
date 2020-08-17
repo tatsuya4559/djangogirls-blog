@@ -17,5 +17,5 @@ urlpatterns = [
     path("posts/", views.posts, name="posts"),
 
     # api
-    path("api/posts/", api.posts, name="api_posts"),
+    path("api/posts/", api.get_posts, name="get_posts"),
 ]
